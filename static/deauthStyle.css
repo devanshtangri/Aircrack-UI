@@ -1,0 +1,413 @@
+.deauth {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.header {
+    background-color: rgb(21, 28, 54);
+    width: 100%;
+    height: 7.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header a {
+    background-image: url("Assets/back.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 5px;
+    width: 7.5dvh;
+    height: 7.5dvh;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 0.5dvw;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.header a:hover {
+    border: 2px solid white;
+}
+.header b {
+    position: absolute;
+    text-align: center;
+    font-size: 2dvw;
+    cursor: default;
+}
+#showTable:modal {
+    position: absolute;
+    width: 80dvw;
+    height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2% 4%;
+    background-color: rgb(21, 30, 57);
+    border: none;
+    border-radius: 2dvw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 2;
+    box-shadow: 0 0 30px black;
+    visibility: hidden;
+    opacity: 0;
+}
+#showTable:focus-visible {
+    border: none;
+}
+#showTable::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+#heading {
+    cursor: default;
+    width: 100%;
+    display: flex;
+    font-size: 3dvw;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    div {
+        margin-left: 1%;
+        border: 3px solid white;
+        border-top: 3px solid rgb(52, 91, 193);
+        width: 2dvw;
+        height: 2dvw;
+        border-radius: 50%;
+        animation: scan 1s ease-in-out infinite normal;
+    }
+}
+#stopScan,
+#startAttack,
+#stopAttack {
+    font-size: 1.7dvw;
+    width: 35%;
+    padding: 1%;
+    margin: 1%;
+    background-color: rgb(36, 44, 90);
+    border: 2px solid white;
+    border-radius: 1dvw;
+}
+#startAttack {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    border-left: 1px solid white;
+    box-shadow: none;
+    width: 80%;
+    height: 6dvh;
+}
+#stopAttack {
+    text-align: center;
+    text-decoration: none;
+    justify-self: center;
+}
+#stopScan:hover,
+#startAttack:hover,
+#stopAttack:hover {
+    background-color: rgb(49, 60, 122);
+}
+#stopScan:active,
+#startAttack:active,
+#stopAttack:active {
+    transition-duration: 0s;
+    background-color: rgb(36, 44, 90);
+}
+#selectInterfaces {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    border-radius: 2dvw;
+    font-size: 1.6dvw;
+    width: 25dvw;
+    box-shadow: 0 0 30px black;
+    background-color: rgb(37 45 74);
+    li {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75%;
+    }
+}
+#attackOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+#packetCount {
+    text-align: center;
+    font-size: 1.7dvw;
+    width: 25%;
+    height: 6dvh;
+    border: none;
+    outline: none;
+    background-color: rgb(36, 44, 90);
+    border-radius: 1dvw 0 0 1dvw;
+    border: 2px solid white;
+    border-right: none;
+}
+#deauthInfo {
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(49, 60, 99);
+    border-radius: 2dvw;
+    box-shadow: 0 0 30px black;
+    gap: 2dvw;
+    margin-top: 5%;
+    visibility: hidden;
+    opacity: 0;
+}
+.infoCards {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 20dvw;
+    height: 30dvw;
+    background-color: rgb(37 45 74);
+    box-shadow: 0 0 15px black;
+    border-radius: 2dvw;
+    border: 2px solid white;
+    visibility: hidden;
+    opacity: 0;
+    overflow-x: hidden;
+    h3 {
+        font-size: 2dvw;
+        width: 100%;
+        margin: 0;
+        height: 25%;
+        background-color: rgb(23 28 47);
+        border-radius: 2dvw 2dvw 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid white;
+    }
+    pre {
+        padding-left: 8%;
+        margin: 3.5% 0%;
+        font-size: 1.4dvw;
+    }
+}
+#info {
+    user-select: none;
+    cursor: default;
+    font-size: 1.75dvw;
+}
+#options {
+    align-self: flex-start;
+    width: 100%;
+    height: 5dvw;
+    user-select: none;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 1.5dvw;
+        color: rgb(143, 143, 143);
+    }
+}
+#columnChecks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+table {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(37, 50, 96);
+    border-radius: 1.5dvw;
+    border-collapse: collapse;
+    box-shadow: 0 0 30px black;
+}
+th {
+    user-select: none;
+    height: 10dvh;
+    padding: 16px;
+    font-size: 1.5dvw;
+    background-color: transparent;
+}
+thead {
+    border-bottom: 2px solid white;
+}
+tfoot {
+    border-top: 2px solid white;
+}
+tbody tr {
+    background-color: rgb(24, 32, 64);
+    height: 8dvh;
+    font-size: 1.2dvw;
+    cursor: pointer;
+    border-width: 1px 0 1px 0;
+    border-color: white;
+    border-style: solid;
+    td {
+        padding: 1%;
+    }
+}
+tbody tr:nth-child(even) {
+    background-color: rgb(20, 26, 51);
+}
+tbody tr:hover {
+    background-color: rgb(96, 106, 144);
+    transition-duration: 50ms;
+}
+tbody tr:active {
+    background-color: rgb(36, 39, 53);
+    transition-duration: 0s;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+    width: 25%;
+    box-shadow: 0 0 30px black;
+    margin: auto 0 0 0;
+}
+.container label {
+    width: 100%;
+    height: 100%;
+    border-radius: 2dvw 2dvw 0 0;
+    background-color: rgb(21, 28, 54);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 2dvw;
+}
+.interfaceList {
+    width: 100%;
+    height: 100%;
+    font-size: 1.75dvw;
+    text-align: center;
+    appearance: none;
+    background-color: rgb(35, 45, 87);
+    border-width: 1px 0 1px 0;
+    outline: none;
+}
+.scanButton {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    font-size: 2dvw;
+    border: 3px solid transparent;
+    border-radius: 0 0 2dvw 2dvw;
+    background-color: rgb(21, 28, 54);
+    transition-duration: 0.1s;
+}
+.scanButton:hover {
+    border: 3px solid white;
+}
+.scanButton:active {
+    background-color: rgba(21, 28, 54, 0.185);
+}
+@keyframes scan {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@media (orientation: portrait) {
+    .header a {
+        width: 7.5dvh;
+    }
+    .header b {
+        font-size: 6dvw;
+    }
+    .container {
+        width: 85dvw;
+        label {
+            border-radius: 5dvw 5dvw 0 0;
+            font-size: 6dvw;
+        }
+        button {
+            border-radius: 0 0 5dvw 5dvw;
+            font-size: 6dvw;
+        }
+    }
+    .interfaceList {
+        font-size: 5dvw;
+    }
+    #showTable:modal {
+        width: 90dvw;
+        border-radius: 5dvw;
+        overflow-x: auto;
+    }
+    #heading {
+        font-size: 4.5dvw;
+        div {
+            width: 4dvw;
+            height: 4dvw;
+        }
+    }
+    #info {
+        font-size: 3dvw;
+    }
+    #options {
+        margin-bottom: 5%;
+        label {
+            font-size: 2dvw;
+        }
+    }
+    #stopScan {
+        font-size: 2.5dvw;
+    }
+    #selectInterfaces {
+        font-size: 5dvw;
+        width: 75dvw;
+    }
+    #startAttack {
+        width: 70%;
+        height: 5dvh;
+        font-size: 5dvw;
+    }
+    #packetCount {
+        font-size: 5dvw;
+        height: 5dvh;
+        width: 15%;
+    }
+    #stopAttack {
+        font-size: 5dvw;
+    }
+    .infoCards {
+        width: 60dvw;
+        height: 75dvw;
+        h3 {
+            font-size: 5dvw;
+            height: 25%;
+        }
+        pre {
+            margin: 3% 0%;
+            font-size: 4dvw;
+        }
+    }
+    th {
+        height: 4dvh;
+        font-size: 2dvw;
+    }
+    tbody tr {
+        height: 4dvh;
+        font-size: 1.8dvw;
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AirCrack-UI</title>
+        <link rel="stylesheet" href="static/indexStyle.css" />
+        <link rel="stylesheet" href="static/deauthStyle.css" />
+        <script src="static/socketio.js"></script>
+
+    </head>
+    <body class="deauth">
+        <header class="header">
+            <a href="/"></a>
+            <div style="width: 85%; height: 100%"></div>
+            <b>Deauthentication Attack</b>
+        </header>
+        <dialog id="showTable">
+            <pre id="heading"><div></div></pre>
+            <div id="options">
+                <div id="columnChecks">
+                    <label
+                        ><input type="checkbox" class="boxes" id="Hidden" />
+                        Hidden APs</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            checked
+                            class="boxes"
+                            id="BSSID"
+                        />
+                        BSSID</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            checked
+                            class="boxes"
+                            id="Channel"
+                        />
+                        Channel</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            checked
+                            class="boxes"
+                            id="Signal Strength"
+                        />
+                        Signal Strength</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            checked
+                            class="boxes"
+                            id="Security"
+                        />
+                        Security</label
+                    >
+                </div>
+                <button id="stopScan">Stop Scan</button>
+            </div>
+            <table></table>
+        </dialog>
+        <div class="container">
+            <label for="interfaceList"><b>Select Interface</b></label>
+            <select
+                class="interfaceList"
+                name="interfaceList"
+                id="interfaceList"
+            ></select>
+            <button class="scanButton">Start Scanning</button>
+        </div>
+        <footer>
+            <p>
+                ⚠️ This tool is intended for educational and authorized security
+                testing only. Unauthorized use against networks you don't own or
+                have explicit permission to test is illegal and unethical.
+            </p>
+        </footer>
+        <script src="static/deauthScript.js"></script>
+    </body>
+</html>

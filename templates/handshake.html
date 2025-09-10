@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AirCrack-UI</title>
+        <link rel="stylesheet" href="static/indexStyle.css" />
+        <link rel="stylesheet" href="static/handshakeStyle.css" />
+        <script src="static/socketio.js"></script>
+    </head>
+    <body class="handshake">
+        <header class="header">
+            <a href="/"></a>
+            <b>Handshake Attack</b>
+            <button id="showSavedCaptures"></button>
+        </header>
+        <dialog id="savedCaptures">
+            <pre id="savedHeading">Saved Capture Files</pre>
+            <table id="fileTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Captured</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody id="captureFiles"></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Captured</th>
+                        <th>Size</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </dialog>
+        <dialog id="showTable">
+            <pre id="heading"><div></div></pre>
+            <p id="info">Click any Access Point to Start Attacking</p>
+            <div id="options">
+                <label
+                    ><input type="checkbox" class="boxes" id="Hidden" />Hidden APs</label
+                >
+                <label
+                    ><input type="checkbox" checked class="boxes" id="BSSID" />
+                    BSSID</label
+                >
+                <label
+                    ><input
+                        type="checkbox"
+                        checked
+                        class="boxes"
+                        id="Channel"
+                    />
+                    Channel</label
+                >
+                <label
+                    ><input
+                        type="checkbox"
+                        checked
+                        class="boxes"
+                        id="Signal Strength"
+                    />
+                    Signal Strength</label
+                >
+                <label
+                    ><input
+                        type="checkbox"
+                        checked
+                        class="boxes"
+                        id="Security"
+                    />
+                    Security</label
+                >
+            </div>
+            <table id="APTable"></table>
+        </dialog>
+        <div class="container">
+            <label for="interfaceList"><b>Select Interface</b></label>
+            <select
+                class="interfaceList"
+                name="interfaceList"
+                id="interfaceList"
+            ></select>
+            <button class="scanButton">Start Scanning</button>
+        </div>
+        <footer>
+            <p>
+                ⚠️ This tool is intended for educational and authorized security
+                testing only. Unauthorized use against networks you don't own or
+                have explicit permission to test is illegal and unethical.
+            </p>
+        </footer>
+        <script src="static/handshakeScript.js"></script>
+    </body>
+</html>

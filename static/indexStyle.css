@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "SFPro";
+    src: url("Assets/font.otf");
+}
+* {
+    font-family: SFPro;
+    transition: all 0.25s ease-in-out;
+    color: white;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+.main,
+.handshake,
+.deauth {
+    background-image: url("Assets/background_image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main h1 {
+    cursor: default;
+    font-size: 6.25dvw;
+    margin: 10dvh 0 0 0;
+    background-color: rgb(21, 28, 54);
+    border: 3px solid rgba(12, 17, 28, 0.5);
+    border-radius: 2dvw;
+    padding: 1%;
+    box-shadow: 0 0 30px black;
+}
+.container {
+    background-color: rgb(21, 28, 54);
+    border: 3px solid rgba(12, 17, 28, 0.5);
+    border-radius: 2dvw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20dvw;
+    width: 40dvw;
+    box-shadow: 0 0 30px black;
+    margin: auto 0 0 0;
+}
+.option {
+    background-color: rgb(36, 44, 90);
+    border: 3px solid rgba(55, 65, 81, 0.6);
+    border-radius: 1.5dvw;
+    height: 70%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1dvw;
+    text-decoration: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.option:hover {
+    width: 50%;
+    height: 80%;
+    border: 3px solid white;
+    background-color: rgb(49, 60, 122);
+    font-size: 1.5dvw;
+}
+.option:active {
+    transition-duration: 0s;
+    background-color: rgb(36, 44, 90);
+}
+.icon {
+    width: 55%;
+}
+footer {
+    margin: 0;
+    background-color: rgb(21, 28, 54);
+    width: 100%;
+    margin-top: auto;
+}
+footer p {
+    cursor: default;
+    text-align: center;
+    align-content: center;
+    font-size: 0.75dvw;
+}
+
+/* Smartphone Optimization */
+
+@media (orientation: portrait) {
+    .main h1 {
+        font-size: 16dvw;
+        padding: 4%;
+        border-radius: 5dvw;
+    }
+    .container {
+        margin: auto 0 auto 0;
+        border-radius: 5dvw;
+        width: 90dvw;
+        height: 50dvw;
+    }
+    .option {
+        font-size: 3dvw;
+        border-radius: 4dvw;
+    }
+    .option:hover {
+        width: 40%;
+        height: 70%;
+        font-size: 3dvw;
+    }
+    footer p {
+        font-size: 2.5dvw;
+    }
+}
