@@ -461,7 +461,7 @@ def getInterfaces(_):
                 
                 output = subprocess.check_output(["sudo", "iw", "phy", phy, "info"], text=True)
                 for line in output.split("\n"):
-                    if "5180 MHz [36]" in line.strip():
+                    if "MHz [36]" in line.strip():
                         version = 5
                         break
 
@@ -623,4 +623,5 @@ def stopDeauthAttack():
 
 ## Host Interface ##
 if __name__ == "__main__":
+
     socket.run(app, host="0.0.0.0", port=80, debug=True, allow_unsafe_werkzeug=True)
