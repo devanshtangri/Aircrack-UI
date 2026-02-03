@@ -23,8 +23,6 @@ Aircrack-UI provides a **user-friendly web interface** that makes wireless secur
 - Download captured **`.cap` files directly from the UI**
 - Built using Flask, Socket.IO, and Scapy
 
----
-
 
 > ⚠️ **Legal & Ethical Disclaimer**
 >
@@ -34,9 +32,6 @@ Aircrack-UI provides a **user-friendly web interface** that makes wireless secur
 > Unauthorized wireless attacks, deauthentication, packet capture, or monitoring of networks you do not control may be **illegal** and punishable under local, national, or international law.
 >
 > The authors and contributors of this project **assume no liability** for misuse, damage, or legal consequences resulting from the use of this software.
-
-
----
 
 
 ## Installation
