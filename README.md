@@ -25,6 +25,20 @@ Aircrack-UI provides a **user-friendly web interface** that makes wireless secur
 
 ---
 
+
+> ⚠️ **Legal & Ethical Disclaimer**
+>
+> This project is intended **strictly for educational purposes and authorized security testing only**.  
+> You must **own the network** you are testing or have **explicit permission** from the network owner.
+>
+> Unauthorized wireless attacks, deauthentication, packet capture, or monitoring of networks you do not control may be **illegal** and punishable under local, national, or international law.
+>
+> The authors and contributors of this project **assume no liability** for misuse, damage, or legal consequences resulting from the use of this software.
+
+
+---
+
+
 ## Installation
 
 Install all required dependencies with a single command:
@@ -88,3 +102,31 @@ You can configure Aircrack-UI to start automatically when the Raspberry Pi boots
 Create a service file:
 ```bash
 sudo nano /etc/systemd/system/aircrack-ui.service
+```
+
+Paste the following (Adjust Paths)
+```bash
+[Unit]
+Description=Aircrack-UI Web Interface
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /path/to/app.py
+WorkingDirectory=/path/to/
+User=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Enable and start the service
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable aircrack-ui
+sudo systemctl start aircrack-ui
+```
+
+After this, Aircrack-UI will:
+- Start automatically on boot
+- Be accessible as soon as the hotspot is active
