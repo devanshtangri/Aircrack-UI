@@ -34,7 +34,7 @@ Aircrack-UI provides a **user-friendly web interface** that makes wireless secur
 > The author of this project **assume no liability** for misuse, damage, or legal consequences resulting from the use of this software.
 
 ## Youtube Video
-[![Watch the video](https://img.youtube.com/vi/AO5V8Ow4blY/maxresdefault.jpg)](https://youtu.be/AO5V8Ow4blY)
+[![Watch the video](https://img.youtube.com/vi/AO5V8Ow4blY/maxresdefault.jpg)](https://www.youtube.com/watch?v=AO5V8Ow4blY)
 ## Installation
 
 Install all required dependencies with a single command:
