@@ -1,6 +1,6 @@
 # Aircrack-UI
 
-Aircrack-UI is a web-based graphical interface for **aircrack-ng**, designed to simplify Wi-Fi security testing by providing an intuitive and efficient user interface. It removes the need to manually run complex terminal commands while retaining full control over common wireless attack workflows.
+Aircrack-UI is a web-based graphical interface for **aircrack-ng**, designed to simplify Wi-Fi security testing by providing an intuitive and efficient user interface. It removes the need to manually run complex terminal commands whithout needing to write them yourselves.
 
 ---
 
